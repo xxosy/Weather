@@ -4,8 +4,6 @@ package com.weather.home.dagger;
 
 import com.weather.home.presenter.HomePresenter;
 import com.weather.home.presenter.HomePresenterImpl;
-import com.weather.home.view.Test1;
-import com.weather.home.view.TestClass;
 import com.weather.network.dagger.NetworkModule;
 
 import dagger.Module;
@@ -35,10 +33,5 @@ public class HomeModule {
     @Provides
     HomePresenter.View provideView() {
         return view;
-    }
-
-    @Provides
-    Test1 provideTest1(TestClass testClass){
-        return testClass;
     }
 }

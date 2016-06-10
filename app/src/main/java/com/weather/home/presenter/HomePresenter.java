@@ -1,5 +1,7 @@
 package com.weather.home.presenter;
 
+import java.util.List;
+
 /**
  * Created by YoungWon on 2016-06-02.
  */
@@ -7,9 +9,12 @@ package com.weather.home.presenter;
 public interface HomePresenter {
 
     void onItemClick(int position);
+    void onEnterView();
 
     interface View {
-
-        void test();
+        void refreshWeatherIcon();
+        void refreshRegion(String region);
+        void refreshPresentTime(String time);
+        void refreshWeeklyWeatherData(List<String> weathers);
     }
 }
