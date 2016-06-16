@@ -16,6 +16,14 @@ public class HomePresenterImpl implements HomePresenter {
     }
     @Override
     public void onItemClick(int position) {
-        view.test();
+
+    }
+
+    @Override
+    public void onEnterActivity() {
+
+    }
+    private void getWeatherData(){
+
     }
 }

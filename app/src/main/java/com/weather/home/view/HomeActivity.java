@@ -83,4 +83,24 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Vie
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+    @Override
+    public void refreshWeatherIcon() {
+
+    }
+
+    @Override
+    public void refreshRegion(String region) {
+
+    }
+
+    @Override
+    public void refreshPresentTime(String time) {
+
+    }
+
+    @Override
+    public void refreshWeeklyWeatherData(List<String> weathers) {
+
+    }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface HomePresenter {
 
     void onItemClick(int position);
-    void onEnterView();
+    void onEnterActivity();
 
     interface View {
         void refreshWeatherIcon();
