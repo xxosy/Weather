@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitCreator {
 
-    private static String BASE_URL = "";
+    private static String BASE_URL = "http://api.openweathermap.org";
 
     public static Retrofit createRetrofit() {
 
@@ -15,6 +15,5 @@ public class RetrofitCreator {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-
     }
 }

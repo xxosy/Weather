@@ -1,6 +1,6 @@
 package com.weather.network;
 
-import com.weather.domain.weather.Weather;
+import com.weather.domain.weather.WeatherData;
 
 import javax.inject.Inject;
 
@@ -20,13 +20,13 @@ public class WeatherApi {
         this.retrofit = retrofit;
     }
 
-    public Observable<Weather> getWeatherState(){
+    public Observable<WeatherData> getWeatherState(){
         return retrofit.create(Api.class)
                 .getWeather();
     }
 
     interface Api {
-        @GET("")
-        Observable<Weather> getWeather();
+        @GET("/data/2.5/weather?lat=35.82&lon=127.15&APPID=c3a6ae5ba98a12123a17b8f506e26fe6")
+        Observable<WeatherData> getWeather();
     }
 }
