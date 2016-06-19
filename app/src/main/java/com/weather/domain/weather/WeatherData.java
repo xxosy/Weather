@@ -1,13 +1,15 @@
 package com.weather.domain.weather;
 
+import android.util.Log;
+
 /**
  * Created by YoungWon on 2016-06-17.
  */
 
 public class WeatherData {
-    WeatherData item;
+    static WeatherData item;
     Coord coord;
-    Weather weather;
+    Weather weather[];
     String base;
     Main main;
     Wind wind;
@@ -18,7 +20,9 @@ public class WeatherData {
     String name;
     int cod;
 
-    public WeatherData getItem() {
+    public static WeatherData getItem() {
+        if(item==null)
+            item = new WeatherData();
         return item;
     }
 
@@ -58,7 +62,7 @@ public class WeatherData {
         return sys;
     }
 
-    public Weather getWeather() {
+    public Weather[] getWeather() {
         return weather;
     }
 
@@ -68,6 +72,7 @@ public class WeatherData {
 
     public void setItem(WeatherData item) {
         this.item = item;
+        Log.i("test","test2");
     }
 
     public void setBase(String base) {
@@ -106,7 +111,7 @@ public class WeatherData {
         this.sys = sys;
     }
 
-    public void setWeather(Weather weather) {
+    public void setWeather(Weather[] weather) {
         this.weather = weather;
     }
 

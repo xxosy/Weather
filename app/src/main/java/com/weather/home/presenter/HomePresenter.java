@@ -1,5 +1,7 @@
 package com.weather.home.presenter;
 
+import com.weather.domain.weather.WeatherData;
+
 import java.util.List;
 
 /**
@@ -16,5 +18,6 @@ public interface HomePresenter {
         void refreshRegion(String region);
         void refreshPresentTime(String time);
         void refreshWeeklyWeatherData(List<String> weathers);
+        void refreshTest();
     }
 }

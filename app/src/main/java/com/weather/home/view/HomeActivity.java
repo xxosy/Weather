@@ -11,6 +11,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.weather.R;
+import com.weather.domain.weather.WeatherData;
 import com.weather.home.dagger.DaggerHomeComponent;
 import com.weather.home.dagger.HomeModule;
 import com.weather.home.presenter.HomePresenter;
@@ -102,5 +103,10 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Vie
     @Override
     public void refreshWeeklyWeatherData(List<String> weathers) {
 
+    }
+
+    @Override
+    public void refreshTest() {
+        Log.i("test",WeatherData.getItem().getBase());
     }
 }

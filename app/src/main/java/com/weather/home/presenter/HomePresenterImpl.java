@@ -1,5 +1,7 @@
 package com.weather.home.presenter;
 
+import android.util.Log;
+
 import com.weather.domain.weather.WeatherData;
 import com.weather.network.WeatherApi;
 
@@ -24,10 +26,12 @@ public class HomePresenterImpl implements HomePresenter {
     private PublishSubject<String> weatherSubject;
     private Subscription weatherSubscription;
     @Inject
-    public HomePresenterImpl(View view, String aa){
+    public HomePresenterImpl(View view, WeatherApi weatherApi, String aa){
         this.view = view;
         this.aa = aa;
+        this.weatherApi = weatherApi;
         weatherSubject = PublishSubject.create();
+        Log.i("test","test1");
         initSubscription();
     }
 
@@ -37,13 +41,15 @@ public class HomePresenterImpl implements HomePresenter {
                 .throttleWithTimeout(200, TimeUnit.MILLISECONDS)
                 .observeOn(Schedulers.io())
                 .subscribe(text -> {
-                    weatherApi.getWeatherState()
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(result-> {WeatherData::setItem(result);},
-                                    Throwable::printStackTrace,
-                                    view::refreshWeatherIcon);
 
                 }, Throwable::printStackTrace);
+        Log.i("test","test3");
+        weatherApi.getWeatherState()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(WeatherData.getItem()::setItem,
+                        Throwable::printStackTrace,
+                        view::refreshTest);
     }
     @Override
     public void onItemClick(int position) {
@@ -52,9 +58,6 @@ public class HomePresenterImpl implements HomePresenter {
 
     @Override
     public void onEnterActivity() {
-
-    }
-    private void getWeatherData(){
 
     }
 }
