@@ -72,7 +72,6 @@ public class WeatherData {
 
     public void setItem(WeatherData item) {
         this.item = item;
-        Log.i("test","test2");
     }
 
     public void setBase(String base) {

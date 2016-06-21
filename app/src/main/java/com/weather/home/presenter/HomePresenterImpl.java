@@ -43,8 +43,7 @@ public class HomePresenterImpl implements HomePresenter {
                 .subscribe(text -> {
 
                 }, Throwable::printStackTrace);
-        Log.i("test","test3");
-        weatherApi.getWeatherState()
+        weatherApi.getWeatherState("35.82","127.15")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(WeatherData.getItem()::setItem,
