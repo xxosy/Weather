@@ -18,6 +18,6 @@ public interface HomePresenter {
         void refreshRegion(String region);
         void refreshPresentTime(String time);
         void refreshWeeklyWeatherData(List<String> weathers);
-        void refreshTest();
+        void refresh();
     }
 }

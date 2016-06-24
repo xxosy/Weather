@@ -3,6 +3,7 @@ package com.weather.home.presenter;
 import android.util.Log;
 
 import com.weather.domain.weather.WeatherData;
+import com.weather.home.adapter.WeatherAdapter;
 import com.weather.network.WeatherApi;
 
 import java.util.concurrent.TimeUnit;
@@ -31,7 +32,6 @@ public class HomePresenterImpl implements HomePresenter {
         this.aa = aa;
         this.weatherApi = weatherApi;
         weatherSubject = PublishSubject.create();
-        Log.i("test","test1");
         initSubscription();
     }
 
@@ -46,9 +46,9 @@ public class HomePresenterImpl implements HomePresenter {
         weatherApi.getWeatherState("35.82","127.15")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(WeatherData.getItem()::setItem,
+                .subscribe(new WeatherAdapter()::set,
                         Throwable::printStackTrace,
-                        view::refreshTest);
+                        view::refresh);
     }
     @Override
     public void onItemClick(int position) {

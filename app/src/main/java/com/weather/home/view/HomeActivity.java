@@ -106,7 +106,8 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Vie
     }
 
     @Override
-    public void refreshTest() {
-        Log.i("test",WeatherData.getItem().getBase());
+    public void refresh() {
+
     }
+
 }

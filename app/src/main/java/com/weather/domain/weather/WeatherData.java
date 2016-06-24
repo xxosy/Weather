@@ -7,24 +7,17 @@ import android.util.Log;
  */
 
 public class WeatherData {
-    static WeatherData item;
-    Coord coord;
-    Weather weather[];
-    String base;
-    Main main;
-    Wind wind;
-    Clouds clouds;
-    long dt;
-    Sys sys;
-    long id;
-    String name;
-    int cod;
-
-    public static WeatherData getItem() {
-        if(item==null)
-            item = new WeatherData();
-        return item;
-    }
+    private Coord coord;
+    private Weather weather[];
+    private String base;
+    private Main main;
+    private Wind wind;
+    private Clouds clouds;
+    private long dt;
+    private Sys sys;
+    private long id;
+    private String name;
+    private int cod;
 
     public Clouds getClouds() {
         return clouds;
@@ -68,10 +61,6 @@ public class WeatherData {
 
     public Wind getWind() {
         return wind;
-    }
-
-    public void setItem(WeatherData item) {
-        this.item = item;
     }
 
     public void setBase(String base) {
